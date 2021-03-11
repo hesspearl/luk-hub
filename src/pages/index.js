@@ -12,13 +12,13 @@ export default function Home() {
 
   const loadRepos = async (searchText) => {
     setLoading(true);
+
     const res = await searchRepo(searchText);
     if (res && res.data) {
       setLoading(false);
-      setRepos(res.data);
+      setRepos(res.data.items);
     }
   };
-
 
   const id = 1;
 
@@ -41,7 +41,6 @@ export default function Home() {
                 </div>
               );
             })}
-
       </section>
     </div>
   );
